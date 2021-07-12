@@ -21,6 +21,7 @@ cout<<x
 - 위와 같이 하면, x 가 8진수로 출력된다.
 - oct 이외에도 출력 관련 객체를 cout 에 전달하면 여러 포멧이 가능하다.
 - 가령 hex 를 전달한 이후 출력하면 16진수 포멧으로 출력된다.
+- dec 를 전달하면 2진수로 출력된다.
 
 - showbase: 를 전달하면 출력 숫자의 진법이 표시된다.
 - 8진법의 경우 특히 0이 붙어 나오고, 16진법은 익히 알고있는 대로 0x 가 붙어 나온다
@@ -29,6 +30,8 @@ cout<<x
 
 - boolalpha 는 0이면 false 나머지면 true 인 bool 의 출력을 정말 true or false 로 하여 준다
 
+- setw, setfill : setw 함수로 n 을 전달하고, setfill 로 기호를 전달한다.
+ㄴ>그럼 무조건 정수가 n 자리까지, 앞에 기호를 채워서 표현된다.
 
 
 부동소수점 표현
@@ -38,11 +41,16 @@ cout<<x
 
 - cout 에 showpoint 객체를 전달하게 되면, 정수뿐인 double 객체도 소수점을 포함하여 나타낸다. 
 - 소수점 자리 역시 지정할 수 있다. 
-- setw, setfill : setw 함수로 n 을 전달하고, setfill 로 기호를 전달한다.
-ㄴ>그럼 무조건 정수가 n 자리까지, 앞에 기호를 채워서 표현된다.
+
+//이 코드 이후의 precision 함수는 소수점 아래 자리의 조작만 시행한다
+cout<<fixed;
+cout.precision(number);
+
+//이 코드 이후에는 다시 precision 함수가 다시 전체 출력 범위를 조작하도록 한다. 
+cout.unsetf(ios::fixed);
+
 
 - hex 와 oct 와 같은 출력용 리터럴? 들은 cin 에도 전달하여 마찬가지로 사용할 수 있따. 
-
 
 oct 와 hex , binary 오가기
 
